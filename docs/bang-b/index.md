@@ -2,5 +2,8 @@
 
 Lập trình cá nhân giải bài toán thuật toán bằng các ngôn ngữ như C/C++, Python hoặc Pascal.
 
-!!! info "Đang cập nhật"
-    Chưa có đề cho bảng này.
+## Danh sách đề
+
+| Ngày | Đề | Số bài | Đáp án |
+| --- | --- | ---: | --- |
+| 2025 | [Quận Ngũ Hành Sơn 2025](2025/nhs2025-de1/index.md) | 3 | [Xem](2025/nhs2025-de1/dap-an.md) |

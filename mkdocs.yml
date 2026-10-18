@@ -71,7 +71,18 @@ nav:
           - "Đề 1 (20/09/2026)":
               - Đề bài: bang-a/2026/20260920-de1/index.md
               - Đáp án: bang-a/2026/20260920-de1/dap-an.md
-  - Bảng B - THCS: bang-b/index.md
+      - "2025":
+          - bang-a/2025/index.md
+          - "Quận Ngũ Hành Sơn 2025":
+              - Đề bài: bang-a/2025/nhs2025-de1/index.md
+              - Đáp án: bang-a/2025/nhs2025-de1/dap-an.md
+  - Bảng B - THCS:
+      - bang-b/index.md
+      - "2025":
+          - bang-b/2025/index.md
+          - "Quận Ngũ Hành Sơn 2025":
+              - Đề bài: bang-b/2025/nhs2025-de1/index.md
+              - Đáp án: bang-b/2025/nhs2025-de1/dap-an.md
   - Bảng C1 / C2 - THPT: bang-c/index.md
   - Bảng M1 / M2 - Tư duy thuật toán: bang-m/index.md
   - Bảng D1 / D2 / D3 - Sáng tạo: bang-d/index.md

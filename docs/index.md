@@ -6,8 +6,8 @@ Tuyển tập đề thi thực hành **Tin học trẻ** kèm lời giải tham 
 
 | Bảng | Đối tượng | Nội dung | Số đề |
 | --- | --- | --- | ---: |
-| [A](bang-a/index.md) | Tiểu học | Lập trình cá nhân bằng Scratch hoặc tư duy lập trình cơ bản | 1 |
-| [B](bang-b/index.md) | THCS | Lập trình cá nhân giải bài toán thuật toán (C/C++, Python, Pascal) | 0 |
+| [A](bang-a/index.md) | Tiểu học | Lập trình cá nhân bằng Scratch hoặc tư duy lập trình cơ bản | 2 |
+| [B](bang-b/index.md) | THCS | Lập trình cá nhân giải bài toán thuật toán (C/C++, Python, Pascal) | 1 |
 | [C1 / C2](bang-c/index.md) | THPT | Lập trình nâng cao hoặc thi đội; C1 thường là THPT chuyên Tin, C2 là THPT không chuyên Tin | 0 |
 | [M1 / M2](bang-m/index.md) | Tư duy thuật toán | Năng lực tư duy thuật toán và giải quyết vấn đề | 0 |
 | [D1 / D2 / D3](bang-d/index.md) | Sáng tạo | Sản phẩm sáng tạo: phần mềm, ứng dụng, giải pháp AI, IoT, công cụ học tập và cộng đồng | 0 |
@@ -15,6 +15,8 @@ Tuyển tập đề thi thực hành **Tin học trẻ** kèm lời giải tham 
 ## Đề mới nhất
 
 - [Bảng A - Đề 1 (20/09/2026)](bang-a/2026/20260920-de1/index.md) · [Đáp án](bang-a/2026/20260920-de1/dap-an.md)
+- [Bảng A - Quận Ngũ Hành Sơn 2025](bang-a/2025/nhs2025-de1/index.md) · [Đáp án](bang-a/2025/nhs2025-de1/dap-an.md)
+- [Bảng B - Quận Ngũ Hành Sơn 2025](bang-b/2025/nhs2025-de1/index.md) · [Đáp án](bang-b/2025/nhs2025-de1/dap-an.md)
 
 ## Cách luyện tập
 
