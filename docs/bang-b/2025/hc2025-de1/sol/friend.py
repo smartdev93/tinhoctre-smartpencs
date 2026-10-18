@@ -18,8 +18,9 @@ def tong_uoc_thuc_su(n):
 
 def solve_friend(data):
     a, b = map(int, data.split()[:2])
+    # Cặp thân thiện phải gồm hai số khác nhau (6 6 là số hoàn hảo -> NO).
     # Kiểm tra A trước, chỉ tính tổng ước của B khi cần -> đỡ một lần O(√N)
-    if tong_uoc_thuc_su(a) == b and tong_uoc_thuc_su(b) == a:
+    if a != b and tong_uoc_thuc_su(a) == b and tong_uoc_thuc_su(b) == a:
         return "YES"
     return "NO"
 

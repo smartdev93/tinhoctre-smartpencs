@@ -1,6 +1,6 @@
 ---
 name: tinhoctre-docs
-description: Extract đề thi Tin học trẻ từ các PDF trong data/new_pdfs/, viết thành trang đề bài + đáp án + lời giải Python trong docs/, cập nhật nav/index, build mkdocs --strict, rồi chuyển PDF đã xử lý sang data/pdfs/. Dùng khi người dùng gọi /tinhoctre-docs, hoặc nhờ "thêm đề mới", "extract đề từ PDF", "đưa đề lên site".
+description: Extract đề thi Tin học trẻ từ các PDF trong data/new_pdfs/, viết thành trang đề bài + đáp án + lời giải Python trong docs/, cập nhật nav/index, build mkdocs --strict, rồi chuyển PDF đã xử lý sang data/pdfs/. PDF trùng kỳ thi đã có thì tổ hợp thông tin vào đề hiện có và ghi đè PDF bản cũ. Dùng khi người dùng gọi /tinhoctre-docs, hoặc nhờ "thêm đề mới", "extract đề từ PDF", "đưa đề lên site", "cập nhật đề bản mới".
 argument-hint: "[tên file PDF trong data/new_pdfs (bỏ trống = xử lý tất cả)]"
 ---
 
@@ -15,7 +15,7 @@ Biến PDF đề thi trong `data/new_pdfs/` thành trang docs trên site, rồi 
 1. **Không bịa đề.** Chỉ chép những gì PDF ghi. Thứ gì tự thêm (định dạng vào/ra, ví dụ, ràng buộc, giả định) phải đánh dấu `(bổ sung)` và giải thích trong admonition `Nguồn đề`.
 2. **Code trong PDF không đáng tin.** Tài liệu tổng hợp thường có code sai, thiếu điều kiện hoặc lệch với mô tả. Tự kiểm chứng; nếu sai, viết lời giải đúng và ghi chú lỗi trong `dap-an.md`.
 3. **Bài thiếu thông tin** (không rõ yêu cầu, chỉ có tên bài): vẫn liệt kê trong bảng tổng quan, ghi `!!! info "Thiếu đề chi tiết"`, không viết lời giải đoán mò.
-4. Chỉ chuyển PDF sang `data/pdfs/` khi mọi bài trong PDF đã được đưa vào docs (kể cả dạng "thiếu đề chi tiết") **và** `mkdocs build --strict` pass.
+4. Chỉ chuyển PDF sang `data/pdfs/` khi mọi bài trong PDF đã được đưa vào docs (kể cả dạng "thiếu đề chi tiết") **và** `mkdocs build --strict` pass. PDF trùng tên trong `data/pdfs/` thì ghi đè bản cũ (xem bước 11).
 5. Không commit, không push trừ khi người dùng yêu cầu.
 
 ## Quy trình
@@ -47,7 +47,21 @@ Nhiều PDF có thể mô tả **cùng một kỳ thi**: gộp lại thành mộ
 grep -rn "<tên đơn vị>" docs/ mkdocs.yml
 ```
 
-Nếu kỳ thi đã có trên site: chỉ bổ sung phần còn thiếu (ví dụ thay đoạn "Thiếu đề chi tiết" bằng đề thật), không tạo thư mục mới.
+Nếu kỳ thi đã có trên site (cùng tên file trong `data/pdfs/`, hoặc cùng đơn vị + năm + bảng): **không tạo thư mục mới**, mà tổ hợp thông tin vào đề hiện có theo mục "Tổ hợp với đề đã có" bên dưới.
+
+#### Tổ hợp với đề đã có
+
+Nguồn để tổ hợp: trang docs hiện có (`index.md`, `dap-an.md`, `sol/`), PDF mới, và PDF cũ trong `data/pdfs/` nếu còn (đọc trước khi bị ghi đè ở bước 11).
+
+Với từng bài, gộp theo quy tắc:
+
+- **Thêm vào** những gì bản mới có mà docs chưa có: đề chi tiết thay cho "Thiếu đề chi tiết", định dạng vào/ra, ràng buộc, ví dụ, đính chính, giả định.
+- **Giữ lại** những gì docs đang có mà bản mới không nhắc tới, vì PDF cũ sắp bị ghi đè và docs là nơi duy nhất còn lưu thông tin đó.
+- **Mâu thuẫn** giữa các bản: lấy bản mới hơn nếu nó tự ghi là đính chính. Nếu không rõ bản nào đúng, ghi cả hai cách trong `!!! note` và nêu trong báo cáo.
+- **Nhãn nguồn:** phần trước đây ghi "(bổ sung)" mà nay tài liệu đã có thì bỏ nhãn. "Cách hiểu đề dùng cho lời giải tham khảo" mà nay tài liệu đã chốt thì đổi thành ghi chú dẫn theo tài liệu (ví dụ `!!! note "Lưu ý đính chính của tài liệu"`). Ví dụ do site tự thêm vẫn giữ nhãn "(bổ sung)".
+- Cập nhật admonition "Nguồn đề" cho đúng các tài liệu đã dùng.
+- Điều kiện đề thay đổi thì sửa lời giải và `dap-an.md`, rồi chạy lại toàn bộ bước 7. Ví dụ trong đề phải khớp với output của lời giải mới.
+- Số bài thay đổi thì cập nhật cột "Số bài" ở các trang index (bước 9).
 
 ### 4. Xác định vị trí
 
@@ -105,17 +119,18 @@ Lỗi thì sửa đến khi pass. Không bỏ `--strict` (CI dùng `--strict`).
 Chỉ khi bước 10 pass:
 
 ```bash
-mkdir -p data/pdfs && mv -n "data/new_pdfs/<file>.pdf" data/pdfs/
+mkdir -p data/pdfs && mv -f "data/new_pdfs/<file>.pdf" data/pdfs/
 ```
 
-`-n` để không ghi đè. Nếu `data/pdfs/` đã có file trùng tên, giữ nguyên ở `new_pdfs` và hỏi người dùng. Kiểm tra lại bằng `ls data/new_pdfs data/pdfs`.
+PDF trùng tên trong `data/pdfs/` được coi là **bản cũ của cùng tài liệu**: ghi đè luôn, không cần hỏi, nhưng chỉ sau khi đã tổ hợp xong thông tin của bản cũ vào docs (bước 3). PDF mới cùng kỳ thi mà khác tên thì chuyển vào bình thường, không xóa PDF cũ. Kiểm tra lại bằng `ls data/new_pdfs data/pdfs`.
 
 ### 12. Báo cáo
 
 Ngắn gọn, gồm:
 
-- Bảng: PDF → đề đã tạo (đường dẫn) → số bài (có lời giải / thiếu đề).
+- Bảng: PDF → đề đã tạo hoặc đã cập nhật (đường dẫn) → số bài (có lời giải / thiếu đề).
+- Với đề đã có: những gì đã thêm, đã đổi, mâu thuẫn giữa các bản và cách đã chọn.
 - Những gì đã **bổ sung** hoặc **giả định** (không có trong đề gốc).
 - Lỗi phát hiện trong đề/code mẫu của tài liệu.
 - Kết quả kiểm chứng (số test, ví dụ pass) và build.
-- PDF đã chuyển / còn lại trong `new_pdfs` kèm lý do.
+- PDF đã chuyển (ghi rõ file nào đã ghi đè bản cũ) / còn lại trong `new_pdfs` kèm lý do.

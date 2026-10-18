@@ -6,7 +6,7 @@ Mỗi chương trình đọc từ bàn phím và in ra màn hình như code mẫ
 
 | STT | Bài | Ý tưởng | Độ phức tạp |
 | ---: | --- | --- | --- |
-| 1 | Cặp số thân thiện | Tính tổng ước bằng cách duyệt đến $\sqrt{N}$ | $O(\sqrt{N})$ |
+| 1 | Cặp số thân thiện | Tính tổng ước bằng cách duyệt đến $\sqrt{N}$, kiểm tra $A \ne B$ | $O(\sqrt{N})$ |
 | 2 | Nén xâu đảo ngược | Đếm từng đoạn ký tự giống nhau, rồi đảo xâu | $O(N)$ |
 | 3 | Đoạn con có tổng lớn nhất | Kadane | $O(N)$ |
 | 4 | Sắp đặt hàng hóa | Sắp xếp + hai con trỏ | $O(N \log N)$ |
@@ -19,10 +19,11 @@ Mỗi chương trình đọc từ bàn phím và in ra màn hình như code mẫ
 
 Với $N = 10^{12}$, vòng lặp chạy khoảng $10^6$ bước thay vì $10^{12}$.
 
-Lời giải chỉ tính tổng ước của $B$ khi tổng ước của $A$ đã bằng $B$, nên phần lớn test chỉ tốn một vòng $\sqrt{N}$.
+Đáp án là `YES` khi $A \ne B$, tổng ước thực sự của $A$ bằng $B$ và tổng ước thực sự của $B$ bằng $A$. Lời giải kiểm tra $A \ne B$ trước, và chỉ tính tổng ước của $B$ khi tổng ước của $A$ đã bằng $B$, nên phần lớn test chỉ tốn một vòng $\sqrt{N}$.
 
 !!! warning "Bẫy thường gặp"
-    - $n = 1$ không có ước thực sự nào, tổng là 0. Code mẫu trong tài liệu *Tổng hợp đề thi & đáp án* bắt đầu duyệt từ $i = 1$ và trả về tổng bằng 1 khi $n = 1$, nên in `YES` cho test `1 1`. Lời giải này xử lý riêng $n \le 1$.
+    - Quên điều kiện $A \ne B$: test `6 6` (số hoàn hảo) sẽ in sai `YES`.
+    - $n = 1$ không có ước thực sự nào, tổng là 0. Nếu duyệt từ $i = 1$ và cộng cả $i$ lẫn $n / i$ mà không xử lý riêng, tổng ước của 1 thành 1. Code mẫu trong tài liệu *Tổng hợp đề thi & đáp án* mắc lỗi này. Lời giải này trả về 0 khi $n \le 1$.
     - Duyệt đến $n - 1$ hoặc $n / 2$ quá chậm với $N = 10^{12}$.
     - Điều kiện dừng `i * i <= n` tránh dùng `sqrt` số thực (có thể sai số với số lớn).
 
@@ -41,7 +42,7 @@ Mỗi ký tự được duyệt đúng một lần nên độ phức tạp $O(N)
 
 !!! warning "Bẫy thường gặp"
     - Nối xâu bằng `res = res + ...` trong vòng lặp có thể thành $O(N^2)$ trong một số ngôn ngữ. Python nên gom vào danh sách rồi `"".join(...)`; C++ dùng `res += ...` là ổn.
-    - Số lần lặp có thể có nhiều chữ số (`12a`). Khi đảo cả xâu, chữ số cũng bị đảo (`a21`). Xem phần cách hiểu đề.
+    - Số lần lặp có thể có nhiều chữ số (`12a`). Đề yêu cầu đảo **toàn bộ** xâu nên chữ số cũng bị đảo (`a21`), không đảo theo từng cụm.
 
 ```python title="compress.py"
 --8<-- "bang-b/2025/hc2025-de1/sol/compress.py"
@@ -73,7 +74,7 @@ $$cur = \max(x,\ cur + x)$$
 Mỗi bước, `right` giảm 1 và số thùng tăng 1; nếu ghép được thì `left` tăng 1.
 
 !!! warning "Lưu ý về giả định của đề"
-    Thuật toán này chỉ đúng khi **mỗi thùng chứa tối đa 2 kiện** (xem phần cách hiểu đề). Lời giải đã được đối chiếu với vét cạn trên 400 test ngẫu nhiên nhỏ theo giả định đó.
+    Thuật toán này chỉ đúng khi **mỗi thùng chứa tối đa 2 kiện**, đúng như giả định bổ sung của tài liệu. Lời giải đã được đối chiếu với vét cạn trên 400 test ngẫu nhiên nhỏ theo giả định đó.
 
 ```python title="arrange.py"
 --8<-- "bang-b/2025/hc2025-de1/sol/arrange.py"
