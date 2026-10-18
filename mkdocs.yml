@@ -1,0 +1,77 @@
+site_name: Tin học trẻ - Đề thi & đáp án
+site_description: Tuyển tập đề thi Tin học trẻ kèm lời giải tham khảo bằng Python
+site_url: https://smartdev93.github.io/tinhoctre-smartpencs/
+repo_url: https://github.com/smartdev93/tinhoctre-smartpencs
+repo_name: smartdev93/tinhoctre-smartpencs
+edit_uri: edit/main/docs/
+copyright: Lời giải phát hành theo giấy phép Apache-2.0. Đề thi thuộc bản quyền của đơn vị ra đề.
+
+theme:
+  name: material
+  language: vi
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Chế độ tối
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Chế độ sáng
+  features:
+    - navigation.indexes
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - content.tabs.link
+    - search.highlight
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.snippets:
+      base_path: [docs]
+      check_paths: true
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+
+nav:
+  - Trang chủ: index.md
+  - Bảng A - Tiểu học:
+      - bang-a/index.md
+      - "2026":
+          - bang-a/2026/index.md
+          - "Đề 1 (20/09/2026)":
+              - Đề bài: bang-a/2026/20260920-de1/index.md
+              - Đáp án: bang-a/2026/20260920-de1/dap-an.md
+  - Bảng B - THCS: bang-b/index.md
+  - Bảng C1 / C2 - THPT: bang-c/index.md
+  - Bảng M1 / M2 - Tư duy thuật toán: bang-m/index.md
+  - Bảng D1 / D2 / D3 - Sáng tạo: bang-d/index.md

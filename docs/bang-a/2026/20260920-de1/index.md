@@ -211,3 +211,7 @@ Cho một dãy số nguyên gồm $N$ phần tử. Hãy chia dãy thành hai ph�
 * $(1) \mid (234) \rightarrow 1 \times 9 = 9$
 * $(12) \mid (34) \rightarrow 3 \times 7 = 21$
 * $(123) \mid (4) \rightarrow 6 \times 4 = 24 \rightarrow$ lớn nhất
+---
+
+!!! tip "Đáp án"
+    Tự làm trước, sau đó xem [lời giải tham khảo](dap-an.md).
