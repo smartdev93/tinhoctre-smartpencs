@@ -2,7 +2,7 @@
 
 Tuyển tập đề thi **Tin học trẻ** kèm lời giải tham khảo, xuất bản dạng website bằng [MkDocs Material](https://squidfunk.github.io/mkdocs-material/).
 
-Website: https://smartdev93.github.io/tinhoctre-smartpencs/
+Website: https://tinhoctre.smart-pens.com/
 
 ## Cấu trúc
 
