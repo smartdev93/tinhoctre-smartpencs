@@ -194,4 +194,4 @@ cython_debug/
 .cursorindexingignore
 # Claude Code (local, per-user)
 .claude/settings.local.json
-.DS_Store
+
