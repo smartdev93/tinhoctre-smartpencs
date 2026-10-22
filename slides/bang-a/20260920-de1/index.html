@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chữa đề Bảng A – 20/09/2026 · Bài giảng Tin học trẻ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500..800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap">
+<style>
+html,body{margin:0;height:100%;background:#0f1630;overflow:hidden;font-family:Nunito,Verdana,sans-serif}
+
+.stage{position:absolute;width:1920px;height:1080px;transform-origin:0 0;overflow:hidden}
+.stage section{position:absolute;inset:0;box-sizing:border-box;overflow:hidden;display:flex}
+.stage *{box-sizing:border-box}
+.stage h1,.stage h2,.stage h3,.stage p,.stage ul,.stage ol,.stage table{margin:0}
+.stage div:not([style*="display:"]){display:flex;flex-direction:column}
+.stage table{border-collapse:collapse;width:100%}
+.stage th,.stage td{padding:.35em .6em;text-align:left;border-bottom:1px solid rgba(29,43,83,.18)}
+.stage th{font-weight:800}
+.stage aside{display:none}
+.stage x-shape,.stage x-icon{display:block;flex:none}
+.stage x-shape[kind=ellipse]{border-radius:50%}
+.stage x-shape[kind=arrow-right]{clip-path:polygon(0 30%,60% 30%,60% 0,100% 50%,60% 100%,60% 70%,0 70%)}
+.stage x-shape[kind=arrow-left]{clip-path:polygon(100% 30%,40% 30%,40% 0,0 50%,40% 100%,40% 70%,100% 70%)}
+.stage x-icon svg{width:100%;height:100%}
+
+#stage{left:50%;top:50%;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+#stage section:not(.on){display:none !important}
+#bar{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:8px;align-items:center;padding:6px 8px;border-radius:10px;background:rgba(15,22,48,.85);color:#c9d3ea;font-size:14px;opacity:.15;transition:opacity .2s}
+#bar:hover{opacity:1}
+#bar button,#bar a{background:#2a3a6b;color:#fff8ec;border:0;border-radius:6px;padding:6px 12px;font:inherit;cursor:pointer;text-decoration:none}
+#notes{position:fixed;left:16px;right:16px;bottom:48px;max-height:30vh;overflow:auto;background:#fff8ec;color:#1d2b53;border-radius:10px;padding:14px 18px;font-size:17px;line-height:1.5;display:none}
+</style>
+</head>
+<body>
+<div id="stage" class="stage">
+<section id="cover" data-transition="fade" style="background:#1D2B53;color:#FFF8EC;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:40px">
+<x-shape kind="ellipse" style="position:absolute;left:1360px;top:96px;width:440px;height:440px;background:#F28C28;opacity:0.9"></x-shape>
+<x-shape kind="ellipse" style="position:absolute;left:1240px;top:620px;width:220px;height:220px;background:#5B8DEF;opacity:0.85"></x-shape>
+<x-icon name="Code" style="position:absolute;left:1470px;top:206px;width:220px;height:220px;color:#1D2B53"></x-icon>
+<p style="font-size:32px;font-weight:800;color:#F9B36B;letter-spacing:4px;text-transform:uppercase">Tin học trẻ · Bảng A · Tiểu học</p>
+<h1 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:120px;font-weight:800;line-height:1.0;width:1100px">Chữa đề thực hành<br>Đề 1 (20/09/2026)</h1>
+<p style="font-size:40px;color:#C9D3EA;width:1050px">4 bài · mỗi bài 100 điểm · lời giải bằng Python</p>
+<aside>Mục tiêu buổi học: các em hiểu cách nghĩ ra lời giải cho cả 4 bài, không chỉ chép code. Với mỗi bài: đọc đề, tự làm ví dụ bằng tay, tìm quy luật, rồi mới viết code. Thời lượng gợi ý khoảng 90 phút, mỗi bài khoảng 20 phút.</aside>
+</section>
+<section id="tongquan" data-transition="fade" style="background:#FFF8EC;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#B4570A;letter-spacing:3px;text-transform:uppercase">Tổng quan đề</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">4 bài, 4 cách nghĩ khác nhau</h2>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:16px;background:#FFFFFF;border:2px solid #E7DCC8;border-radius:28px;padding:40px">
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;color:#F28C28;line-height:1">1</p>
+<h3 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:700;line-height:1.1">Tặng bánh</h3>
+<p style="font-size:28px;color:#4A5568">Mua sao cho nhiều bánh nhất</p>
+<p style="font-size:24px;font-weight:700;color:#2F5FBF;background:#EAF1FB;padding:8px 16px;border-radius:999px">Tham lam</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:#FFFFFF;border:2px solid #E7DCC8;border-radius:28px;padding:40px">
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;color:#F28C28;line-height:1">2</p>
+<h3 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:700;line-height:1.1">Chia kẹo</h3>
+<p style="font-size:28px;color:#4A5568">Ít hộp nhất, không để hai màu liên tiếp chung hộp</p>
+<p style="font-size:24px;font-weight:700;color:#2F5FBF;background:#EAF1FB;padding:8px 16px;border-radius:999px">Chẵn – lẻ</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:#FFFFFF;border:2px solid #E7DCC8;border-radius:28px;padding:40px">
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;color:#F28C28;line-height:1">3</p>
+<h3 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:700;line-height:1.1">Chuỗi lặp đều</h3>
+<p style="font-size:28px;color:#4A5568">Xếp lại chữ cái thành chuỗi lặp k lần</p>
+<p style="font-size:24px;font-weight:700;color:#2F5FBF;background:#EAF1FB;padding:8px 16px;border-radius:999px">Đếm chữ cái</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:#FFFFFF;border:2px solid #E7DCC8;border-radius:28px;padding:40px">
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;color:#F28C28;line-height:1">4</p>
+<h3 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:700;line-height:1.1">Tính tích</h3>
+<p style="font-size:28px;color:#4A5568">Cắt dãy làm hai, tích hai tổng lớn nhất</p>
+<p style="font-size:24px;font-weight:700;color:#2F5FBF;background:#EAF1FB;padding:8px 16px;border-radius:999px">Cộng dồn</p>
+</div>
+</div>
+<p style="font-size:32px;color:#4A5568"><b style="color:#1D2B53">Mỗi bài:</b> đọc đề → làm ví dụ bằng tay → tìm quy luật → viết code → thử test khó</p>
+<aside>Hỏi lớp trước khi chiếu tên kỹ thuật: theo các em bài nào dễ nhất, bài nào khó nhất? Nhắc lại quy trình 5 bước ở dòng cuối và dùng nó cho cả 4 bài.</aside>
+</section>
+<section id="b1-de" data-transition="fade" style="background:#FFF8EC;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#B4570A;letter-spacing:3px;text-transform:uppercase">Bài 1 · Tặng bánh · Đề bài</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">Lan có N nghìn đồng. Mua được nhiều bánh nhất là bao nhiêu?</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#1D2B53;color:#FFF8EC;border-radius:28px;padding:40px">
+<p style="font-size:28px;color:#C9D3EA">Hộp lớn</p>
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.1">30 cái</p>
+<p style="font-size:32px;font-weight:700;color:#F9B36B">210 nghìn</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:2px solid #E7DCC8;border-radius:28px;padding:40px">
+<p style="font-size:28px;color:#4A5568">Hộp nhỏ</p>
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.1">5 cái</p>
+<p style="font-size:32px;font-weight:700;color:#B4570A">38 nghìn</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:2px solid #E7DCC8;border-radius:28px;padding:40px">
+<p style="font-size:28px;color:#4A5568">Mua lẻ</p>
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.1">1 cái</p>
+<p style="font-size:32px;font-weight:700;color:#B4570A">9 nghìn</p>
+</div>
+</div>
+<div style="display:flex;gap:48px;align-items:center">
+<p style="font-size:32px"><b>Ví dụ:</b> 210 → <b>30</b> · 257 → <b>36</b> (1 hộp lớn + 1 hộp nhỏ + 1 lẻ)</p>
+<p style="font-size:28px;font-weight:700;color:#2F5FBF;background:#EAF1FB;padding:8px 20px;border-radius:999px">N ≤ 1 tỉ</p>
+</div>
+<aside>Cho cả lớp tự tính ví dụ 257 trên giấy trước. Hỏi: nếu có 1 tỉ nghìn đồng thì sao? Ghi chú N rất lớn để dẫn sang bẫy vòng lặp lồng nhau ở cuối bài.</aside>
+</section>
+<section id="b1-y" data-transition="fade" style="background:#FFF8EC;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#B4570A;letter-spacing:3px;text-transform:uppercase">Bài 1 · Ý tưởng</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">So sánh giá của một cái bánh</h2>
+</div>
+<div style="display:flex;gap:64px">
+<div style="width:620px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;align-items:center;gap:24px;background:#1D2B53;color:#FFF8EC;border-radius:24px;padding:24px 32px">
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:64px;font-weight:800;color:#F9B36B;line-height:1;width:150px">7</p>
+<p style="font-size:30px">nghìn/cái · hộp lớn<br><b>rẻ nhất</b></p>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFFFF;border:2px solid #E7DCC8;border-radius:24px;padding:24px 32px">
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:64px;font-weight:800;color:#B4570A;line-height:1;width:150px">7,6</p>
+<p style="font-size:30px">nghìn/cái · hộp nhỏ</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFFFF;border:2px solid #E7DCC8;border-radius:24px;padding:24px 32px">
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:64px;font-weight:800;color:#B4570A;line-height:1;width:150px">9</p>
+<p style="font-size:30px">nghìn/cái · mua lẻ</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:32px"><b>1.</b> Mua nhiều hộp lớn nhất có thể.<br><b>2.</b> Tiền dư (dưới 210): thử 0, 1, …, 5 hộp nhỏ.<br><b>3.</b> Còn lại mua lẻ. Chọn cách nhiều bánh nhất.</p>
+<table style="font-size:28px;color:#1D2B53">
+<tr style="background:#EAF1FB"><th style="width:28%">N = 257</th><th style="width:24%">Tiền dư</th><th style="width:20%">Lẻ</th><th style="width:28%">Tổng bánh</th></tr>
+<tr><td>0 hộp nhỏ</td><td>47</td><td>5</td><td>30 + 5 = 35</td></tr>
+<tr style="background:#FDE8D2"><td>1 hộp nhỏ</td><td>9</td><td>1</td><td><b>36 (tốt nhất)</b></td></tr>
+</table>
+</div>
+</div>
+<aside>Vì sao chỉ thử tới 5 hộp nhỏ: tiền dư nhỏ hơn 210, mà 6 × 38 = 228 đã vượt. Vì sao không bỏ bớt hộp lớn: 210 nghìn mua hộp lớn được 30 cái, còn nếu không mua hộp lớn thì tối đa 27 cái (5 hộp nhỏ + 2 cái lẻ). Lưu ý: không phải lúc nào mua nhiều hộp nhỏ cũng tốt nhất, như ví dụ 257 cho thấy cần thử từng trường hợp.</aside>
+</section>
+<section id="b1-code" data-transition="fade" style="background:#EAF1FB;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#2F5FBF;letter-spacing:3px;text-transform:uppercase">Bài 1 · Code Python</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">Hộp lớn trước, rồi thử hộp nhỏ</h2>
+</div>
+<div style="display:flex;gap:48px;align-items:start">
+<div style="flex:1;background:#1D2B53;border-radius:28px;padding:44px 48px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.45;color:#F4EFE4">n = <span style="color:#9CC3FF">int</span>(<span style="color:#9CC3FF">input</span>())<br>lon = n // <span style="color:#9CC3FF">210</span><br>du = n - lon * <span style="color:#9CC3FF">210</span><br>ans = <span style="color:#9CC3FF">0</span><br><span style="color:#F9B36B">for</span> nho <span style="color:#F9B36B">in</span> <span style="color:#9CC3FF">range</span>(du // <span style="color:#9CC3FF">38</span> + <span style="color:#9CC3FF">1</span>):<br>&#160;&#160;&#160;&#160;con = du - nho * <span style="color:#9CC3FF">38</span><br>&#160;&#160;&#160;&#160;banh = lon * <span style="color:#9CC3FF">30</span> + nho * <span style="color:#9CC3FF">5</span> + con // <span style="color:#9CC3FF">9</span><br>&#160;&#160;&#160;&#160;ans = <span style="color:#9CC3FF">max</span>(ans, banh)<br><span style="color:#9CC3FF">print</span>(ans)</p>
+</div>
+<div style="width:520px;display:flex;flex-direction:column;gap:20px">
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>lon</b>: số hộp lớn mua được</p>
+</div>
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>du</b>: tiền còn lại, luôn dưới 210</p>
+</div>
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>nho</b>: thử từng số hộp nhỏ, còn lại mua lẻ</p>
+</div>
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>//</b> là phép chia lấy phần nguyên</p>
+</div>
+</div>
+</div>
+<aside>Vòng for chạy tối đa 6 lần, dù N bằng 1 tỉ. Cho học sinh chạy thử với 210, 257 và 8 (kết quả 30, 36, 0).</aside>
+</section>
+<section id="b2-de" data-transition="fade" style="background:#FFF8EC;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#B4570A;letter-spacing:3px;text-transform:uppercase">Bài 2 · Chia kẹo · Đề bài</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">Hai màu liên tiếp không được chung một hộp</h2>
+</div>
+<p style="font-size:32px;color:#4A5568">N viên kẹo (N ≤ 1000), mỗi viên có một số màu khác nhau. Cần <b style="color:#1D2B53">ít hộp nhất</b> là bao nhiêu?</p>
+<div style="display:flex;gap:40px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:20px;background:#FFFFFF;border:2px solid #E7DCC8;border-radius:28px;padding:36px 40px">
+<p style="font-size:28px;color:#4A5568">Ví dụ: 4 viên kẹo</p>
+<div style="display:flex;gap:16px">
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:800;background:#FDE8D2;padding:8px 28px;border-radius:999px">2</p>
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:800;background:#FDE8D2;padding:8px 28px;border-radius:999px">10</p>
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:800;background:#FDE8D2;padding:8px 28px;border-radius:999px">1</p>
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:800;background:#FDE8D2;padding:8px 28px;border-radius:999px">20</p>
+</div>
+</div>
+<x-shape kind="arrow-right" style="width:120px;height:60px;background:#F28C28"></x-shape>
+<div style="display:flex;flex-direction:column;gap:20px;background:#1D2B53;color:#FFF8EC;border-radius:28px;padding:36px 40px">
+<p style="font-size:28px;color:#C9D3EA">Hộp 1</p>
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:800">1 · 10 · 20</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px;background:#1D2B53;color:#FFF8EC;border-radius:28px;padding:36px 40px">
+<p style="font-size:28px;color:#C9D3EA">Hộp 2</p>
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:800">2</p>
+</div>
+</div>
+<p style="font-size:32px">1 và 2 là hai số liên tiếp nên phải tách ra → đáp án <b>2</b>. Chỉ có 1 viên kẹo → đáp án <b>1</b>.</p>
+<aside>Đừng nói ngay ý tưởng. Hỏi lớp: nếu có kẹo màu 1, 2, 3, 4, 5 thì cần mấy hộp? Để các em tự thử xếp và phát hiện là 2 hộp vẫn đủ.</aside>
+</section>
+<section id="b2-y" data-transition="fade" style="background:#F28C28;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:48px">
+<p style="font-size:28px;font-weight:800;letter-spacing:3px;text-transform:uppercase">Bài 2 · Ý tưởng</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:96px;font-weight:800;line-height:1.05;width:1500px">Hai số liên tiếp luôn có một số chẵn và một số lẻ.</h2>
+<p style="font-size:44px;font-weight:600;width:1500px">Hộp số chẵn + hộp số lẻ → <b>2 hộp luôn đủ</b>. Đáp án chỉ là 1 hoặc 2.</p>
+<div style="display:flex;gap:32px">
+<p style="font-size:32px;font-weight:700;background:#FFF8EC;padding:16px 32px;border-radius:999px">Có hai màu liên tiếp → 2</p>
+<p style="font-size:32px;font-weight:700;background:#FFF8EC;padding:16px 32px;border-radius:999px">Không có → 1</p>
+</div>
+<aside>Đây là kiểu bài “nhìn ra quy luật thì rất ngắn”. Nhấn mạnh: đề có vẻ khó (chia hộp) nhưng chỉ cần kiểm tra có cặp liên tiếp hay không.</aside>
+</section>
+<section id="b2-code" data-transition="fade" style="background:#EAF1FB;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#2F5FBF;letter-spacing:3px;text-transform:uppercase">Bài 2 · Code Python</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">Sắp xếp rồi so hai số đứng cạnh nhau</h2>
+</div>
+<div style="display:flex;gap:48px;align-items:start">
+<div style="flex:1;background:#1D2B53;border-radius:28px;padding:44px 48px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.45;color:#F4EFE4">n = <span style="color:#9CC3FF">int</span>(<span style="color:#9CC3FF">input</span>())<br>a = <span style="color:#9CC3FF">list</span>(<span style="color:#9CC3FF">map</span>(<span style="color:#9CC3FF">int</span>, <span style="color:#9CC3FF">input</span>().split()))<br>a.sort()<br>ans = <span style="color:#9CC3FF">1</span><br><span style="color:#F9B36B">for</span> i <span style="color:#F9B36B">in</span> <span style="color:#9CC3FF">range</span>(<span style="color:#9CC3FF">1</span>, n):<br>&#160;&#160;&#160;&#160;<span style="color:#F9B36B">if</span> a[i] - a[i - <span style="color:#9CC3FF">1</span>] == <span style="color:#9CC3FF">1</span>:<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ans = <span style="color:#9CC3FF">2</span><br><span style="color:#9CC3FF">print</span>(ans)</p>
+</div>
+<div style="width:520px;display:flex;flex-direction:column;gap:20px">
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px">Sau khi sắp xếp: 1 2 10 20. Hai số liên tiếp sẽ <b>đứng cạnh nhau</b>.</p>
+</div>
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px">Hiệu bằng 1 → cần <b>2</b> hộp.</p>
+</div>
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px">Không cặp nào → giữ <b>1</b> hộp.</p>
+</div>
+</div>
+</div>
+<aside>Câu hỏi thêm: không sắp xếp thì làm sao? Có thể dùng hai vòng lặp so mọi cặp; với N ≤ 1000 vẫn đủ nhanh, nhưng sắp xếp gọn hơn.</aside>
+</section>
+<section id="b3-de" data-transition="fade" style="background:#FFF8EC;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#B4570A;letter-spacing:3px;text-transform:uppercase">Bài 3 · Chuỗi lặp đều · Đề bài</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">Chuỗi lặp đều k lần là gì?</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:2px solid #E7DCC8;border-radius:28px;padding:36px 40px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:40px;font-weight:700">xyz|xyz</p>
+<p style="font-size:28px;color:#4A5568">lặp đều 2 lần</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:2px solid #E7DCC8;border-radius:28px;padding:36px 40px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:40px;font-weight:700">cd|cd|cd|cd</p>
+<p style="font-size:28px;color:#4A5568">lặp đều 2 lần và 4 lần</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:2px solid #E7DCC8;border-radius:28px;padding:36px 40px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:40px;font-weight:700">hello</p>
+<p style="font-size:28px;color:#4A5568">lặp đều 1 lần</p>
+</div>
+</div>
+<div style="background:#1D2B53;color:#FFF8EC;border-radius:28px;padding:40px 48px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:32px"><b style="color:#F9B36B">Yêu cầu:</b> cho k và chuỗi S. Sắp xếp lại các chữ cái của S thành chuỗi lặp đều đúng k lần. Không làm được thì in <b>-1</b>.</p>
+<p style="font-size:30px;color:#C9D3EA">Ví dụ: k = 2, S = aabbcc → abcabc  ·  k = 2, S = abcd → -1</p>
+</div>
+<aside>Dấu gạch đứng chỉ để minh họa chỗ lặp lại, không có trong chuỗi thật. Đề cho phép in bất kỳ một chuỗi đúng nào, ví dụ bcabca cũng được chấp nhận.</aside>
+</section>
+<section id="b3-y" data-transition="fade" style="background:#FFF8EC;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#B4570A;letter-spacing:3px;text-transform:uppercase">Bài 3 · Ý tưởng</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">Mỗi chữ cái phải chia đều cho k phần</h2>
+</div>
+<div style="display:flex;gap:56px">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:32px;font-weight:700">k = 2, S = aabbcc</p>
+<table style="font-size:30px;color:#1D2B53">
+<tr style="background:#EAF1FB"><th style="width:30%">Chữ</th><th style="width:35%">Số lần</th><th style="width:35%">Mỗi phần</th></tr>
+<tr><td>a</td><td>2</td><td>1</td></tr>
+<tr><td>b</td><td>2</td><td>1</td></tr>
+<tr><td>c</td><td>2</td><td>1</td></tr>
+</table>
+<p style="font-size:32px">Một phần T = <b>abc</b> → in T 2 lần: <b>abcabc</b></p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:32px;font-weight:700">k = 2, S = abcd</p>
+<table style="font-size:30px;color:#1D2B53">
+<tr style="background:#EAF1FB"><th style="width:30%">Chữ</th><th style="width:35%">Số lần</th><th style="width:35%">Chia hết 2?</th></tr>
+<tr style="background:#FDE8D2"><td>a</td><td>1</td><td>Không</td></tr>
+<tr><td>b, c, d</td><td>1</td><td>Không</td></tr>
+</table>
+<p style="font-size:32px">Có chữ không chia hết cho k → in <b>-1</b></p>
+</div>
+</div>
+<aside>Quy tắc: đếm số lần mỗi chữ xuất hiện. Nếu có chữ nào có số lần không chia hết cho k thì in -1. Ngược lại, mỗi phần T lấy số lần chia cho k của từng chữ, rồi in T lặp k lần. Hỏi thêm: k = 3, S = bababa thì in gì? (ababab)</aside>
+</section>
+<section id="b3-code" data-transition="fade" style="background:#EAF1FB;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#2F5FBF;letter-spacing:3px;text-transform:uppercase">Bài 3 · Code Python</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">Đếm, kiểm tra, rồi ghép</h2>
+</div>
+<div style="display:flex;gap:48px;align-items:start">
+<div style="flex:1;background:#1D2B53;border-radius:28px;padding:40px 48px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.4;color:#F4EFE4">k = <span style="color:#9CC3FF">int</span>(<span style="color:#9CC3FF">input</span>())<br>s = <span style="color:#9CC3FF">input</span>().strip()<br>dem = {}<br><span style="color:#F9B36B">for</span> c <span style="color:#F9B36B">in</span> s:<br>&#160;&#160;&#160;&#160;dem[c] = dem.get(c, <span style="color:#9CC3FF">0</span>) + <span style="color:#9CC3FF">1</span><br>T = <span style="color:#9CC3FF">""</span><br><span style="color:#F9B36B">for</span> c <span style="color:#F9B36B">in</span> <span style="color:#9CC3FF">sorted</span>(dem):<br>&#160;&#160;&#160;&#160;<span style="color:#F9B36B">if</span> dem[c] % k != <span style="color:#9CC3FF">0</span>:<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color:#9CC3FF">print</span>(-<span style="color:#9CC3FF">1</span>)<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color:#9CC3FF">exit</span>()<br>&#160;&#160;&#160;&#160;T += c * (dem[c] // k)<br><span style="color:#9CC3FF">print</span>(T * k)</p>
+</div>
+<div style="width:520px;display:flex;flex-direction:column;gap:20px">
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>dem</b>: từ điển đếm số lần mỗi chữ</p>
+</div>
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>%</b> lấy số dư. Dư khác 0 → in -1 và dừng</p>
+</div>
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>c * 2</b> = "cc", <b>T * k</b> lặp T đúng k lần</p>
+</div>
+</div>
+</div>
+<aside>Python cho phép nhân chuỗi với số: "ab" * 3 = "ababab". Đây là mẹo giúp code bài này rất ngắn. Nếu học sinh chưa học từ điển, có thể dùng s.count(c) cho từng chữ từ a đến z.</aside>
+</section>
+<section id="b4-de" data-transition="fade" style="background:#FFF8EC;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#B4570A;letter-spacing:3px;text-transform:uppercase">Bài 4 · Tính tích · Đề bài</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">Cắt dãy làm hai, tích hai tổng lớn nhất</h2>
+</div>
+<p style="font-size:32px;color:#4A5568">Dãy N số (N ≤ 100 000). Chia thành phần trái và phần phải, không đổi thứ tự. S1 = tổng trái, S2 = tổng phải. Tìm S1 × S2 lớn nhất.</p>
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="font-size:32px;font-weight:700">Ví dụ: 1 2 3 4</p>
+<table style="font-size:32px;color:#1D2B53">
+<tr style="background:#EAF1FB"><th style="width:34%">Cách cắt</th><th style="width:22%">S1</th><th style="width:22%">S2</th><th style="width:22%">S1 × S2</th></tr>
+<tr><td>1 | 2 3 4</td><td>1</td><td>9</td><td>9</td></tr>
+<tr><td>1 2 | 3 4</td><td>3</td><td>7</td><td>21</td></tr>
+<tr style="background:#FDE8D2"><td>1 2 3 | 4</td><td>6</td><td>4</td><td><b>24 (lớn nhất)</b></td></tr>
+</table>
+</div>
+<aside>Dãy N số có N - 1 chỗ cắt. Cho học sinh tự liệt kê các cách cắt với dãy 3 1 4 1 5 (đáp án 48).</aside>
+</section>
+<section id="b4-y" data-transition="fade" style="background:#FFF8EC;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#B4570A;letter-spacing:3px;text-transform:uppercase">Bài 4 · Ý tưởng</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">Cộng dồn phần trái, không cộng lại từ đầu</h2>
+</div>
+<div style="display:flex;gap:40px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;border:2px solid #E7DCC8;border-radius:28px;padding:40px">
+<h3 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:700">Cách chậm</h3>
+<p style="font-size:30px;color:#4A5568">Mỗi lần cắt lại cộng cả hai phần từ đầu.</p>
+<p style="font-size:30px;color:#4A5568">N = 100 000 → khoảng <b style="color:#B4570A">10 tỉ</b> phép cộng. Quá giờ.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#1D2B53;color:#FFF8EC;border-radius:28px;padding:40px">
+<h3 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:700;color:#F9B36B">Cách nhanh</h3>
+<p style="font-size:30px">Tính <b>tổng cả dãy</b> một lần.</p>
+<p style="font-size:30px">Đi từ trái sang: trái += số mới, phải = tổng − trái.</p>
+<p style="font-size:30px">Chỉ khoảng <b style="color:#F9B36B">100 000</b> phép cộng.</p>
+</div>
+</div>
+<p style="font-size:32px">Với 1 2 3 4 (tổng 10): trái = 1, 3, 6 → phải = 9, 7, 4 → tích 9, 21, <b>24</b></p>
+<aside>Kỹ thuật này gọi là tổng tiền tố (prefix sum), rất hay gặp ở các bảng thi cao hơn. Lưu ý cho học sinh học C++: tích có thể tới khoảng 2,5 × 10^15 nên phải dùng long long; Python thì không lo tràn số.</aside>
+</section>
+<section id="b4-code" data-transition="fade" style="background:#EAF1FB;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#2F5FBF;letter-spacing:3px;text-transform:uppercase">Bài 4 · Code Python</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">Một vòng lặp là đủ</h2>
+</div>
+<div style="display:flex;gap:48px;align-items:start">
+<div style="flex:1;background:#1D2B53;border-radius:28px;padding:44px 48px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.45;color:#F4EFE4">n = <span style="color:#9CC3FF">int</span>(<span style="color:#9CC3FF">input</span>())<br>a = <span style="color:#9CC3FF">list</span>(<span style="color:#9CC3FF">map</span>(<span style="color:#9CC3FF">int</span>, <span style="color:#9CC3FF">input</span>().split()))<br>tong = <span style="color:#9CC3FF">sum</span>(a)<br>trai = <span style="color:#9CC3FF">0</span><br>ans = <span style="color:#9CC3FF">0</span><br><span style="color:#F9B36B">for</span> i <span style="color:#F9B36B">in</span> <span style="color:#9CC3FF">range</span>(n - <span style="color:#9CC3FF">1</span>):<br>&#160;&#160;&#160;&#160;trai += a[i]<br>&#160;&#160;&#160;&#160;ans = <span style="color:#9CC3FF">max</span>(ans, trai * (tong - trai))<br><span style="color:#9CC3FF">print</span>(ans)</p>
+</div>
+<div style="width:520px;display:flex;flex-direction:column;gap:20px">
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>range(n - 1)</b>: phần phải không được rỗng</p>
+</div>
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>trai</b>: tổng phần trái, cộng dồn từng số</p>
+</div>
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>tong - trai</b>: tổng phần phải</p>
+</div>
+</div>
+</div>
+<aside>Hỏi lớp: vì sao là range(n - 1) mà không phải range(n)? Nếu cắt sau phần tử cuối cùng thì phần phải rỗng, trái với đề bài.</aside>
+</section>
+<section id="bay" data-transition="fade" style="background:#1D2B53;color:#FFF8EC;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#F9B36B;letter-spacing:3px;text-transform:uppercase">Tổng kết</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">4 bẫy dễ mất điểm</h2>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#2A3A6B;border-radius:28px;padding:40px">
+<h3 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:700;color:#F9B36B">Bài 1</h3>
+<p style="font-size:30px">Hai vòng lặp lồng nhau với N = 1 tỉ → chạy quá giờ.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#2A3A6B;border-radius:28px;padding:40px">
+<h3 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:700;color:#F9B36B">Bài 2</h3>
+<p style="font-size:30px">Cố mô phỏng việc chia hộp, trong khi đáp án chỉ là 1 hoặc 2.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#2A3A6B;border-radius:28px;padding:40px">
+<h3 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:700;color:#F9B36B">Bài 3</h3>
+<p style="font-size:30px">Quên in -1 khi không làm được.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#2A3A6B;border-radius:28px;padding:40px">
+<h3 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:44px;font-weight:700;color:#F9B36B">Bài 4</h3>
+<p style="font-size:30px">Cộng lại từ đầu mỗi lần cắt → chậm với N = 100 000.</p>
+</div>
+</div>
+<aside>Bài học chung: luôn nhìn giới hạn của N trước khi viết code. N lớn (1 tỉ, 100 000) nghĩa là phải tìm cách tính nhanh, không thể thử hết.</aside>
+</section>
+<section id="venha" data-transition="fade" style="background:#FFF8EC;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#B4570A;letter-spacing:3px;text-transform:uppercase">Về nhà</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">Tự gõ lại code và thử các test này</h2>
+</div>
+<table style="font-size:30px;color:#1D2B53">
+<tr style="background:#EAF1FB"><th style="width:16%">Bài</th><th style="width:44%">Nhập vào</th><th style="width:40%">Kết quả đúng</th></tr>
+<tr><td>1</td><td>8</td><td>0</td></tr>
+<tr><td>1</td><td>419</td><td>57</td></tr>
+<tr><td>2</td><td>3 / 5 7 9</td><td>1</td></tr>
+<tr><td>3</td><td>3 / bababa</td><td>ababab</td></tr>
+<tr><td>4</td><td>5 / 3 1 4 1 5</td><td>48</td></tr>
+</table>
+<p style="font-size:30px;color:#4A5568">Dấu / là xuống dòng. Xem thêm đề và đáp án: <b style="color:#1D2B53">tinhoctre.smart-pens.com</b></p>
+<aside>Bài 3: chuỗi in ra khác ababab nhưng vẫn lặp đều đúng 3 lần (ví dụ bababa) cũng được tính là đúng. Bài 1 với 419: 1 hộp lớn, dư 209 → 5 hộp nhỏ và 2 cái lẻ, tổng 57.</aside>
+</section>
+</div>
+<div id="notes"></div>
+<div id="bar">
+<a href="../../" title="Về danh sách bài giảng">☰ Danh sách</a>
+<button id="prev" title="Trang trước (←)">◀</button>
+<span id="count"></span>
+<button id="next" title="Trang sau (→)">▶</button>
+<button id="fs" title="Toàn màn hình (F)">Toàn màn hình</button>
+<button id="nt" title="Ghi chú giáo viên (N)">Ghi chú</button>
+</div>
+<script>
+(function(){
+
+var ICONS={"Code": "<polyline points=\"16 18 22 12 16 6\"/><polyline points=\"8 6 2 12 8 18\"/>", "Check": "<polyline points=\"20 6 9 17 4 12\"/>", "Lightbulb": "<path d=\"M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z\"/>", "Warning": "<path d=\"M12 3 2 21h20L12 3z\"/><path d=\"M12 10v5M12 18h.01\"/>", "Star": "<polygon points=\"12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9\"/>"};
+document.querySelectorAll('.stage x-icon').forEach(function(el){
+  el.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+(ICONS[el.getAttribute('name')]||'')+'</svg>';
+});
+
+var stage=document.getElementById('stage'),slides=[].slice.call(stage.children),i=0;
+var notes=document.getElementById('notes'),count=document.getElementById('count');
+function fit(){var s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform='scale('+s+') translate(-50%,-50%)';}
+function show(n){
+  i=Math.max(0,Math.min(slides.length-1,n));
+  slides.forEach(function(s,k){s.classList.toggle('on',k===i);});
+  var a=slides[i].querySelector('aside');notes.textContent=a?a.textContent:'(Không có ghi chú)';
+  count.textContent=(i+1)+' / '+slides.length;
+  history.replaceState(null,'','#'+(i+1));
+}
+function fs(){var d=document.documentElement;if(!document.fullscreenElement){d.requestFullscreen&&d.requestFullscreen();}else{document.exitFullscreen();}}
+function nt(){notes.style.display=notes.style.display==='block'?'none':'block';}
+document.getElementById('prev').onclick=function(){show(i-1);};
+document.getElementById('next').onclick=function(){show(i+1);};
+document.getElementById('fs').onclick=fs;
+document.getElementById('nt').onclick=nt;
+stage.onclick=function(e){show(e.clientX<innerWidth/3?i-1:i+1);};
+addEventListener('keydown',function(e){
+  if(['ArrowRight','PageDown',' ','Enter'].indexOf(e.key)>=0){e.preventDefault();show(i+1);}
+  else if(['ArrowLeft','PageUp','Backspace'].indexOf(e.key)>=0){e.preventDefault();show(i-1);}
+  else if(e.key==='Home')show(0);
+  else if(e.key==='End')show(slides.length-1);
+  else if(e.key==='f'||e.key==='F')fs();
+  else if(e.key==='n'||e.key==='N')nt();
+});
+addEventListener('resize',fit);fit();
+addEventListener('hashchange',function(){var n=(parseInt(location.hash.slice(1),10)||1)-1;if(n!==i)show(n);});
+show((parseInt(location.hash.slice(1),10)||1)-1);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+/* Thanh menu dọc bên trái, ngăn cách nội dung bằng đường kẻ dọc */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    border-right: 1px solid var(--md-default-fg-color--lightest);
+  }
+  .md-sidebar--primary .md-nav__item--section > .md-nav__link {
+    color: var(--md-primary-fg-color);
+    font-weight: 700;
+  }
+}
