@@ -1,6 +1,6 @@
 # Đáp án - Bảng B Quận Ngũ Hành Sơn 2025
 
-Lời giải tham khảo bằng Python 3. Xem lại [đề bài](index.md).
+Lời giải tham khảo bằng Python 3 và C++ (C++17). Xem lại [đề bài](index.md).
 
 Mỗi chương trình đọc `input.inp` và ghi `output.out` như đề yêu cầu. Nếu không có file `input.inp`, chương trình đọc từ bàn phím và in ra màn hình để tiện thử.
 
@@ -31,11 +31,19 @@ Phép so sánh này có tính bắc cầu nên dùng được để sắp xếp:
     - Khi mọi thẻ là `0`, phải in `0`, không in `000`.
 
 !!! note "Nếu viết bằng C++"
-    Kết quả có thể dài tới $10^6$ chữ số, không lưu được trong `long long`. Hãy dùng `std::string` và `sort` với hàm so sánh `return a + b > b + a;`.
+    Kết quả có thể dài tới $10^6$ chữ số, không lưu được trong `long long`. Lời giải đọc mỗi thẻ thành `std::string` và `sort` với hàm so sánh `return a + b > b + a;`.
 
-```python title="ghepthe.py"
---8<-- "bang-b/2025/nhs2025-de1/sol/ghepthe.py"
-```
+=== "Python"
+
+    ```python title="ghepthe.py"
+    --8<-- "bang-b/2025/nhs2025-de1/sol/ghepthe.py"
+    ```
+
+=== "C++"
+
+    ```cpp title="ghepthe.cpp"
+    --8<-- "bang-b/2025/nhs2025-de1/sol/ghepthe.cpp"
+    ```
 
 ## 3. Biến đổi xâu đối xứng
 
@@ -52,6 +60,14 @@ Vì $DP[i][\cdot]$ chỉ cần hàng $i+1$, lời giải dùng **một mảng m�
 !!! tip "Cách nhìn khác"
     Đáp án bằng $N$ trừ độ dài **xâu con đối xứng dài nhất** (LPS), cũng bằng $N$ trừ độ dài xâu con chung dài nhất của $S$ và $S$ đảo ngược.
 
-```python title="xaudoixung.py"
---8<-- "bang-b/2025/nhs2025-de1/sol/xaudoixung.py"
-```
+=== "Python"
+
+    ```python title="xaudoixung.py"
+    --8<-- "bang-b/2025/nhs2025-de1/sol/xaudoixung.py"
+    ```
+
+=== "C++"
+
+    ```cpp title="xaudoixung.cpp"
+    --8<-- "bang-b/2025/nhs2025-de1/sol/xaudoixung.cpp"
+    ```

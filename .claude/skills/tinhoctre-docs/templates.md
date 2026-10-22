@@ -72,7 +72,7 @@ Bỏ admonition "Nguồn đề" nếu đề gốc đầy đủ. Tiêu đề mụ
 ````markdown
 # Đáp án - Bảng <X> <Tên kỳ thi>
 
-Lời giải tham khảo bằng Python 3. Xem lại [đề bài](index.md).
+Lời giải tham khảo bằng Python 3 và C++ (C++17). Xem lại [đề bài](index.md).
 
 Mỗi chương trình đọc `input.inp` và ghi `output.out` như đề yêu cầu. Nếu không có file `input.inp`, chương trình đọc từ bàn phím và in ra màn hình để tiện thử.
 
@@ -92,9 +92,17 @@ Mỗi chương trình đọc `input.inp` và ghi `output.out` như đề yêu c�
 !!! note "Nếu viết bằng C++"
     <tràn số, kiểu dữ liệu, I/O nhanh...>
 
-```python title="<file>.py"
---8<-- "<bảng>/<năm>/<slug>/sol/<file>.py"
-```
+=== "Python"
+
+    ```python title="<file>.py"
+    --8<-- "<bảng>/<năm>/<slug>/sol/<file>.py"
+    ```
+
+=== "C++"
+
+    ```cpp title="<file>.cpp"
+    --8<-- "<bảng>/<năm>/<slug>/sol/<file>.cpp"
+    ```
 ````
 
 ## `sol/<file>.py`
@@ -117,6 +125,27 @@ if __name__ == "__main__":
             f.write(solve_<ten>(data) + "\n")
     except FileNotFoundError:
         print(solve_<ten>(sys.stdin.read()))
+```
+
+## `sol/<file>.cpp`
+
+```cpp
+#include <cstdio>
+#include <iostream>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    // Có input.inp thì đọc/ghi file, không thì dùng bàn phím/màn hình
+    if (FILE *f = fopen("input.inp", "r")) {
+        fclose(f);
+        freopen("input.inp", "r", stdin);
+        freopen("output.out", "w", stdout);
+    }
+    // ...
+    return 0;
+}
 ```
 
 ## Dòng index

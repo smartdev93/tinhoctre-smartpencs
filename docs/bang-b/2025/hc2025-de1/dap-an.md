@@ -1,6 +1,6 @@
 # Đáp án - Bảng B Quận Hải Châu 2025
 
-Lời giải tham khảo bằng Python 3. Xem lại [đề bài](index.md).
+Lời giải tham khảo bằng Python 3 và C++ (C++17). Xem lại [đề bài](index.md).
 
 Mỗi chương trình đọc từ bàn phím và in ra màn hình như code mẫu của tài liệu. Nếu có file `input.inp`, chương trình đọc từ file và ghi kết quả ra `output.out`.
 
@@ -30,9 +30,17 @@ Với $N = 10^{12}$, vòng lặp chạy khoảng $10^6$ bước thay vì $10^{12
 !!! note "Nếu viết bằng C++"
     $A, B$ và tổng ước có thể vượt $2^{31}$, phải dùng `long long` cho cả biến chạy `i` (vì `i * i` lên tới $10^{12}$).
 
-```python title="friend.py"
---8<-- "bang-b/2025/hc2025-de1/sol/friend.py"
-```
+=== "Python"
+
+    ```python title="friend.py"
+    --8<-- "bang-b/2025/hc2025-de1/sol/friend.py"
+    ```
+
+=== "C++"
+
+    ```cpp title="friend.cpp"
+    --8<-- "bang-b/2025/hc2025-de1/sol/friend.cpp"
+    ```
 
 ## 2. Nén xâu đảo ngược
 
@@ -44,9 +52,17 @@ Mỗi ký tự được duyệt đúng một lần nên độ phức tạp $O(N)
     - Nối xâu bằng `res = res + ...` trong vòng lặp có thể thành $O(N^2)$ trong một số ngôn ngữ. Python nên gom vào danh sách rồi `"".join(...)`; C++ dùng `res += ...` là ổn.
     - Số lần lặp có thể có nhiều chữ số (`12a`). Đề yêu cầu đảo **toàn bộ** xâu nên chữ số cũng bị đảo (`a21`), không đảo theo từng cụm.
 
-```python title="compress.py"
---8<-- "bang-b/2025/hc2025-de1/sol/compress.py"
-```
+=== "Python"
+
+    ```python title="compress.py"
+    --8<-- "bang-b/2025/hc2025-de1/sol/compress.py"
+    ```
+
+=== "C++"
+
+    ```cpp title="compress.cpp"
+    --8<-- "bang-b/2025/hc2025-de1/sol/compress.cpp"
+    ```
 
 ## 3. Đoạn con có tổng lớn nhất
 
@@ -63,9 +79,17 @@ $$cur = \max(x,\ cur + x)$$
 !!! note "Nếu viết bằng C++"
     Tổng có thể tới $10^5 \cdot 10^9 = 10^{14}$, phải dùng `long long`.
 
-```python title="maxsub.py"
---8<-- "bang-b/2025/hc2025-de1/sol/maxsub.py"
-```
+=== "Python"
+
+    ```python title="maxsub.py"
+    --8<-- "bang-b/2025/hc2025-de1/sol/maxsub.py"
+    ```
+
+=== "C++"
+
+    ```cpp title="maxsub.cpp"
+    --8<-- "bang-b/2025/hc2025-de1/sol/maxsub.cpp"
+    ```
 
 ## 4. Sắp đặt hàng hóa
 
@@ -76,6 +100,17 @@ Mỗi bước, `right` giảm 1 và số thùng tăng 1; nếu ghép được th
 !!! warning "Lưu ý về giả định của đề"
     Thuật toán này chỉ đúng khi **mỗi thùng chứa tối đa 2 kiện**, đúng như giả định bổ sung của tài liệu. Lời giải đã được đối chiếu với vét cạn trên 400 test ngẫu nhiên nhỏ theo giả định đó.
 
-```python title="arrange.py"
---8<-- "bang-b/2025/hc2025-de1/sol/arrange.py"
-```
+!!! note "Nếu viết bằng C++"
+    $W_{left} + W_{right}$ có thể tới $2 \cdot 10^9$, vượt `int`; lời giải lưu trọng lượng bằng `long long`.
+
+=== "Python"
+
+    ```python title="arrange.py"
+    --8<-- "bang-b/2025/hc2025-de1/sol/arrange.py"
+    ```
+
+=== "C++"
+
+    ```cpp title="arrange.cpp"
+    --8<-- "bang-b/2025/hc2025-de1/sol/arrange.cpp"
+    ```

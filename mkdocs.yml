@@ -1,5 +1,5 @@
 site_name: Tin học trẻ - Đề thi & đáp án
-site_description: Tuyển tập đề thi Tin học trẻ kèm lời giải tham khảo bằng Python
+site_description: Tuyển tập đề thi Tin học trẻ kèm lời giải tham khảo bằng Python và C++
 site_url: https://tinhoctre.smart-pens.com/
 repo_url: https://github.com/smartdev93/tinhoctre-smartpencs
 repo_name: smartdev93/tinhoctre-smartpencs
@@ -79,6 +79,87 @@ nav:
           - "Quận Ngũ Hành Sơn 2025":
               - Đề bài: bang-a/2025/nhs2025-de1/index.md
               - Đáp án: bang-a/2025/nhs2025-de1/dap-an.md
+          - "Huyện Hòa Vang 2025":
+              - Đề bài: bang-a/2025/hv2025-de1/index.md
+              - Đáp án: bang-a/2025/hv2025-de1/dap-an.md
+      - "2022":
+          - bang-a/2022/index.md
+          - "TP Đà Nẵng 2022":
+              - Đề bài: bang-a/2022/dn2022-de1/index.md
+              - Đáp án: bang-a/2022/dn2022-de1/dap-an.md
+          - "Quận Cẩm Lệ 2022":
+              - Đề bài: bang-a/2022/cl2022-de1/index.md
+              - Đáp án: bang-a/2022/cl2022-de1/dap-an.md
+          - "Quận Sơn Trà 2022":
+              - Đề bài: bang-a/2022/st2022-de1/index.md
+              - Đáp án: bang-a/2022/st2022-de1/dap-an.md
+          - "Quận Thanh Khê 2022":
+              - Đề bài: bang-a/2022/tk2022-de1/index.md
+              - Đáp án: bang-a/2022/tk2022-de1/dap-an.md
+      - "2021":
+          - bang-a/2021/index.md
+          - "TP Đà Nẵng 2021":
+              - Đề bài: bang-a/2021/dn2021-de1/index.md
+              - Đáp án: bang-a/2021/dn2021-de1/dap-an.md
+      - "2020":
+          - bang-a/2020/index.md
+          - "TP Đà Nẵng 2020":
+              - Đề bài: bang-a/2020/dn2020-de1/index.md
+              - Đáp án: bang-a/2020/dn2020-de1/dap-an.md
+      - "2019":
+          - bang-a/2019/index.md
+          - "TP Đà Nẵng 2019":
+              - Đề bài: bang-a/2019/dn2019-de1/index.md
+              - Đáp án: bang-a/2019/dn2019-de1/dap-an.md
+          - "Huyện Hòa Vang 2019":
+              - Đề bài: bang-a/2019/hv2019-de1/index.md
+              - Đáp án: bang-a/2019/hv2019-de1/dap-an.md
+          - "Quận Ngũ Hành Sơn 2019":
+              - Đề bài: bang-a/2019/nhs2019-de1/index.md
+              - Đáp án: bang-a/2019/nhs2019-de1/dap-an.md
+      - "2018":
+          - bang-a/2018/index.md
+          - "TP Đà Nẵng 2018":
+              - Đề bài: bang-a/2018/dn2018-de1/index.md
+              - Đáp án: bang-a/2018/dn2018-de1/dap-an.md
+      - "2017":
+          - bang-a/2017/index.md
+          - "TP Đà Nẵng 2017":
+              - Đề bài: bang-a/2017/dn2017-de1/index.md
+              - Đáp án: bang-a/2017/dn2017-de1/dap-an.md
+          - "Quận Thanh Khê 2017":
+              - Đề bài: bang-a/2017/tk2017-de1/index.md
+              - Đáp án: bang-a/2017/tk2017-de1/dap-an.md
+          - "Quận Ngũ Hành Sơn 2017":
+              - Đề bài: bang-a/2017/nhs2017-de1/index.md
+              - Đáp án: bang-a/2017/nhs2017-de1/dap-an.md
+      - "2016":
+          - bang-a/2016/index.md
+          - "TP Đà Nẵng 2016":
+              - Đề bài: bang-a/2016/dn2016-de1/index.md
+              - Đáp án: bang-a/2016/dn2016-de1/dap-an.md
+          - "Huyện Hòa Vang 2016":
+              - Đề bài: bang-a/2016/hv2016-de1/index.md
+              - Đáp án: bang-a/2016/hv2016-de1/dap-an.md
+          - "Quận Thanh Khê 2016":
+              - Đề bài: bang-a/2016/tk2016-de1/index.md
+              - Đáp án: bang-a/2016/tk2016-de1/dap-an.md
+          - "Quận Liên Chiểu 2016":
+              - Đề bài: bang-a/2016/lc2016-de1/index.md
+              - Đáp án: bang-a/2016/lc2016-de1/dap-an.md
+          - "Quận Sơn Trà 2016":
+              - Đề bài: bang-a/2016/st2016-de1/index.md
+              - Đáp án: bang-a/2016/st2016-de1/dap-an.md
+      - "2015":
+          - bang-a/2015/index.md
+          - "TP Đà Nẵng 2015":
+              - Đề bài: bang-a/2015/dn2015-de1/index.md
+              - Đáp án: bang-a/2015/dn2015-de1/dap-an.md
+      - "Chưa rõ năm":
+          - bang-a/chua-ro-nam/index.md
+          - "Quận Ngũ Hành Sơn (chưa rõ năm)":
+              - Đề bài: bang-a/chua-ro-nam/nhs-de1/index.md
+              - Đáp án: bang-a/chua-ro-nam/nhs-de1/dap-an.md
   - Bảng B - THCS:
       - bang-b/index.md
       - "2025":
@@ -89,6 +170,30 @@ nav:
           - "Quận Ngũ Hành Sơn 2025":
               - Đề bài: bang-b/2025/nhs2025-de1/index.md
               - Đáp án: bang-b/2025/nhs2025-de1/dap-an.md
-  - Bảng C1 / C2 - THPT: bang-c/index.md
+  - Bảng C1 / C2 - THPT:
+      - bang-c/index.md
+      - "2022":
+          - bang-c/2022/index.md
+          - "Vòng sơ khảo (26/06/2022)":
+              - Đề bài: bang-c/2022/20220626-de1/index.md
+              - Đáp án: bang-c/2022/20220626-de1/dap-an.md
+          - "Khu vực miền Nam 2022":
+              - Đề bài: bang-c/2022/kvmn2022-de1/index.md
+              - Đáp án: bang-c/2022/kvmn2022-de1/dap-an.md
+      - "2021":
+          - bang-c/2021/index.md
+          - "Chung kết toàn quốc (21/11/2021)":
+              - Đề bài: bang-c/2021/20211121-de1/index.md
+              - Đáp án: bang-c/2021/20211121-de1/dap-an.md
+          - "Vòng khu vực (10/10/2021)":
+              - Đề bài: bang-c/2021/20211010-de1/index.md
+              - Đáp án: bang-c/2021/20211010-de1/dap-an.md
   - Bảng M1 / M2 - Tư duy thuật toán: bang-m/index.md
   - Bảng D1 / D2 / D3 - Sáng tạo: bang-d/index.md
+  - HSG Tin học THCS:
+      - hsg-thcs/index.md
+      - "2026":
+          - hsg-thcs/2026/index.md
+          - "Quảng Ninh 2026":
+              - Đề bài: hsg-thcs/2026/qn2026-de1/index.md
+              - Đáp án: hsg-thcs/2026/qn2026-de1/dap-an.md

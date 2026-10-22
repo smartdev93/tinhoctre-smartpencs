@@ -32,3 +32,15 @@ mkdocs serve        # mở http://127.0.0.1:8000
 2. Trong `dap-an.md`, nhúng code bằng snippet: `--8<-- "<bảng>/<năm>/<thư mục>/sol/<file>.py"`.
 3. Thêm đề vào `nav` trong `mkdocs.yml`, bảng ở `docs/index.md`, `docs/<bảng>/index.md` và `docs/<bảng>/<năm>/index.md`.
 4. Push lên `main`: GitHub Actions tự build và deploy lên nhánh `gh-pages`.
+
+## Bài giảng (slide)
+
+Site con riêng tại https://tinhoctre.smart-pens.com/slides/. Nguồn slide nằm ở `slides/<bảng>/<slug>/` (`deck.json`, `meta.json`, `slides/*.html`). Sau khi sửa, build lại rồi commit cả `docs/slides/`:
+
+```bash
+python3 scripts/build_slides.py     # sinh docs/slides/ (trang danh sách + trình chiếu)
+```
+
+## Sách PDF
+
+`python3 scripts/build_book.py` gom toàn bộ đề trong nav của `mkdocs.yml` thành `book/tin-hoc-tre.pdf` (Phần I đề thi, Phần II đáp án, cùng thứ tự menu; code Python và C++). Cần pandoc, XeLaTeX (TeX Live) và PyYAML. Script tự đổi admonition, content tabs, snippet `--8<--`, ảnh và công thức sang LaTeX; link nội bộ thành chữ thường. Thêm đề mới vào nav là sách tự có, chỉ cần build lại.

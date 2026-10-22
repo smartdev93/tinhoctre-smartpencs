@@ -1,6 +1,6 @@
 # Đáp án - Đề 1 Bảng A Tiểu học
 
-Lời giải tham khảo bằng Python 3. Xem lại [đề bài](index.md).
+Lời giải tham khảo bằng Python 3 và C++ (C++17). Xem lại [đề bài](index.md).
 
 | STT | Bài | Ý tưởng | Độ phức tạp |
 | ---: | --- | --- | --- |
@@ -20,9 +20,17 @@ Vì sao không nên bớt hộp lớn: 210 nghìn nếu không mua hộp lớn t
 !!! warning "Bẫy thường gặp"
     Duyệt hai vòng lặp lồng nhau theo số hộp lớn và số hộp nhỏ cho kết quả đúng, nhưng với $N = 10^9$ sẽ chạy quá thời gian.
 
-```python title="hinchchunhat.py"
---8<-- "bang-a/2026/20260920-de1/sol/hinchchunhat.py"
-```
+=== "Python"
+
+    ```python title="hinchchunhat.py"
+    --8<-- "bang-a/2026/20260920-de1/sol/hinchchunhat.py"
+    ```
+
+=== "C++"
+
+    ```cpp title="hinchchunhat.cpp"
+    --8<-- "bang-a/2026/20260920-de1/sol/hinchchunhat.cpp"
+    ```
 
 ## 2. Chia kẹo
 
@@ -33,9 +41,17 @@ Vì sao không nên bớt hộp lớn: 210 nghìn nếu không mua hộp lớn t
 
 Sắp xếp dãy rồi kiểm tra hai phần tử kề nhau có chênh lệch đúng 1 hay không.
 
-```python title="bangcuuchuong.py"
---8<-- "bang-a/2026/20260920-de1/sol/bangcuuchuong.py"
-```
+=== "Python"
+
+    ```python title="bangcuuchuong.py"
+    --8<-- "bang-a/2026/20260920-de1/sol/bangcuuchuong.py"
+    ```
+
+=== "C++"
+
+    ```cpp title="bangcuuchuong.cpp"
+    --8<-- "bang-a/2026/20260920-de1/sol/bangcuuchuong.cpp"
+    ```
 
 ## 3. Chuỗi lặp đều
 
@@ -46,17 +62,33 @@ Sắp xếp dãy rồi kiểm tra hai phần tử kề nhau có chênh lệch đ
 
 Đề cho phép in **một** chuỗi thỏa mãn bất kỳ; lời giải dưới đây in chuỗi có $T$ đã sắp xếp theo thứ tự chữ cái.
 
-```python title="santruong.py"
---8<-- "bang-a/2026/20260920-de1/sol/santruong.py"
-```
+=== "Python"
+
+    ```python title="santruong.py"
+    --8<-- "bang-a/2026/20260920-de1/sol/santruong.py"
+    ```
+
+=== "C++"
+
+    ```cpp title="santruong.cpp"
+    --8<-- "bang-a/2026/20260920-de1/sol/santruong.cpp"
+    ```
 
 ## 4. Tính tích
 
 **Ý tưởng.** Gọi $T$ là tổng cả dãy. Khi cắt sau phần tử thứ $i$, phần trái có tổng $P_i$ (tổng tiền tố) và phần phải có tổng $T - P_i$. Duyệt mọi vị trí cắt $i = 1..N-1$ và lấy giá trị lớn nhất của $P_i \times (T - P_i)$.
 
 !!! note "Nếu viết bằng C++/Pascal"
-    Tích có thể lên tới khoảng $(5 \cdot 10^7)^2 = 2{,}5 \cdot 10^{15}$, vượt kiểu `int` 32-bit. Hãy dùng `long long` (C++) hoặc `int64` (Pascal).
+    Tích có thể lên tới khoảng $(5 \cdot 10^7)^2 = 2{,}5 \cdot 10^{15}$, vượt kiểu `int` 32-bit. Lời giải C++ dùng `long long`; Pascal dùng `int64`.
 
-```python title="dongho.py"
---8<-- "bang-a/2026/20260920-de1/sol/dongho.py"
-```
+=== "Python"
+
+    ```python title="dongho.py"
+    --8<-- "bang-a/2026/20260920-de1/sol/dongho.py"
+    ```
+
+=== "C++"
+
+    ```cpp title="dongho.cpp"
+    --8<-- "bang-a/2026/20260920-de1/sol/dongho.cpp"
+    ```

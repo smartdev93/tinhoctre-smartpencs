@@ -1,0 +1,23 @@
+<section id="b3-code" data-transition="fade" style="background:#EAF1FB;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#2F5FBF;letter-spacing:3px;text-transform:uppercase">Bài 3 · Code Python</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">Đếm, kiểm tra, rồi ghép</h2>
+</div>
+<div style="display:flex;gap:48px;align-items:start">
+<div style="flex:1;background:#1D2B53;border-radius:28px;padding:40px 48px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.4;color:#F4EFE4">k = <span style="color:#9CC3FF">int</span>(<span style="color:#9CC3FF">input</span>())<br>s = <span style="color:#9CC3FF">input</span>().strip()<br>dem = {}<br><span style="color:#F9B36B">for</span> c <span style="color:#F9B36B">in</span> s:<br>&#160;&#160;&#160;&#160;dem[c] = dem.get(c, <span style="color:#9CC3FF">0</span>) + <span style="color:#9CC3FF">1</span><br>T = <span style="color:#9CC3FF">""</span><br><span style="color:#F9B36B">for</span> c <span style="color:#F9B36B">in</span> <span style="color:#9CC3FF">sorted</span>(dem):<br>&#160;&#160;&#160;&#160;<span style="color:#F9B36B">if</span> dem[c] % k != <span style="color:#9CC3FF">0</span>:<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color:#9CC3FF">print</span>(-<span style="color:#9CC3FF">1</span>)<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color:#9CC3FF">exit</span>()<br>&#160;&#160;&#160;&#160;T += c * (dem[c] // k)<br><span style="color:#9CC3FF">print</span>(T * k)</p>
+</div>
+<div style="width:520px;display:flex;flex-direction:column;gap:20px">
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>dem</b>: từ điển đếm số lần mỗi chữ</p>
+</div>
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>%</b> lấy số dư. Dư khác 0 → in -1 và dừng</p>
+</div>
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>c * 2</b> = "cc", <b>T * k</b> lặp T đúng k lần</p>
+</div>
+</div>
+</div>
+<aside>Python cho phép nhân chuỗi với số: "ab" * 3 = "ababab". Đây là mẹo giúp code bài này rất ngắn. Nếu học sinh chưa học từ điển, có thể dùng s.count(c) cho từng chữ từ a đến z.</aside>
+</section>

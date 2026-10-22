@@ -215,3 +215,6 @@ Cho một dãy số nguyên gồm $N$ phần tử. Hãy chia dãy thành hai ph�
 
 !!! tip "Đáp án"
     Tự làm trước, sau đó xem [lời giải tham khảo](dap-an.md).
+
+!!! info "Bài giảng"
+    Giáo viên có thể dùng [slide chữa đề](../../../slides/bang-a/20260920-de1/index.html){ target="_blank" } để trình chiếu trên lớp.

@@ -1,6 +1,6 @@
 # Đáp án - Bảng A Quận Ngũ Hành Sơn 2025
 
-Lời giải tham khảo bằng Python 3. Xem lại [đề bài](index.md).
+Lời giải tham khảo bằng Python 3 và C++ (C++17); riêng Bài 1 (vẽ bằng `turtle`) chỉ có bản Python. Xem lại [đề bài](index.md).
 
 Đề thi chính thức làm bằng **Scratch 3.0**. Code Python dưới đây giúp hiểu thuật toán; khi làm trên Scratch, mỗi hàm Python tương ứng một khối tự tạo, mỗi `list` tương ứng một Danh sách.
 
@@ -41,9 +41,20 @@ Bài này không có đáp án duy nhất; code dưới đây chỉ là một c�
 !!! note "Cách hiểu đề"
     Lời giải theo cách hiểu đã ghi ở [đề bài](index.md): tổng các số lẻ **trong danh sách số đối xứng**. Nếu ban tổ chức yêu cầu tổng các số lẻ của **cả dãy**, chỉ cần đổi vòng cộng sang duyệt `arr`.
 
-```python title="doixung.py"
---8<-- "bang-a/2025/nhs2025-de1/sol/doixung.py"
-```
+!!! note "Nếu viết bằng C++"
+    Đề không giới hạn độ lớn các số. Lời giải C++ đọc số bằng `long long` (tới khoảng $9{,}2 \cdot 10^{18}$), đảo chữ số bằng `unsigned long long` để không tràn, và cộng tổng số lẻ bằng `__int128` vì 100 số cỡ $10^{18}$ có tổng vượt `long long`.
+
+=== "Python"
+
+    ```python title="doixung.py"
+    --8<-- "bang-a/2025/nhs2025-de1/sol/doixung.py"
+    ```
+
+=== "C++"
+
+    ```cpp title="doixung.cpp"
+    --8<-- "bang-a/2025/nhs2025-de1/sol/doixung.cpp"
+    ```
 
 ## 3. Mô phỏng trò chơi tương tác 2D
 

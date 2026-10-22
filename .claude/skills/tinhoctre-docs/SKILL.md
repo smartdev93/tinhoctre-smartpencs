@@ -1,6 +1,6 @@
 ---
 name: tinhoctre-docs
-description: Extract đề thi Tin học trẻ từ các PDF trong data/new_pdfs/, viết thành trang đề bài + đáp án + lời giải Python trong docs/, cập nhật nav/index, build mkdocs --strict, rồi chuyển PDF đã xử lý sang data/pdfs/. PDF trùng kỳ thi đã có thì tổ hợp thông tin vào đề hiện có và ghi đè PDF bản cũ. Dùng khi người dùng gọi /tinhoctre-docs, hoặc nhờ "thêm đề mới", "extract đề từ PDF", "đưa đề lên site", "cập nhật đề bản mới".
+description: Extract đề thi Tin học trẻ từ các PDF trong data/new_pdfs/, viết thành trang đề bài + đáp án + lời giải Python và C++ trong docs/, cập nhật nav/index, build mkdocs --strict, rồi chuyển PDF đã xử lý sang data/pdfs/. PDF trùng kỳ thi đã có thì tổ hợp thông tin vào đề hiện có và ghi đè PDF bản cũ. Dùng khi người dùng gọi /tinhoctre-docs, hoặc nhờ "thêm đề mới", "extract đề từ PDF", "đưa đề lên site", "cập nhật đề bản mới".
 argument-hint: "[tên file PDF trong data/new_pdfs (bỏ trống = xử lý tất cả)]"
 ---
 
@@ -79,25 +79,27 @@ Khi đề chỉ có mô tả tóm tắt mà bài đủ rõ để giải: bổ su
 
 Chỗ mơ hồ/mâu thuẫn trong đề gốc (tiêu đề nói "đếm" nhưng yêu cầu "tính tổng", ràng buộc ngầm trong code mẫu...): ghi `!!! note "Cách hiểu đề dùng cho lời giải tham khảo"` nêu rõ cách hiểu đã chọn.
 
-### 6. Viết lời giải `sol/*.py`
+### 6. Viết lời giải `sol/*.py` và `sol/*.cpp`
 
 - Tên file: tên file code chính thức viết thường nếu đề có (`FRIEND.PY` → `friend.py`), nếu không thì tên bài không dấu viết liền (`ghepthe.py`).
 - Python 3, chỉ thư viện chuẩn. Hàm `solve_<ten>(data)` nhận toàn bộ input dạng chuỗi, trả về chuỗi kết quả. Khối `__main__` đọc `input.inp` / ghi `output.out`, fallback stdin/stdout (xem template).
 - Bài Bảng A (Scratch): viết kiểu dễ chuyển sang Scratch (vòng lặp, danh sách, tránh thư viện), có thể dùng `input()` trực tiếp như các đề Bảng A hiện có.
-- Đạt độ phức tạp đề yêu cầu cho subtask lớn nhất. Ghi lưu ý cho C++ khi có tràn số.
+- Đạt độ phức tạp đề yêu cầu cho subtask lớn nhất.
+- Mỗi `<file>.py` có `<file>.cpp` cùng thư mục: C++17, cùng thuật toán và tên hàm, cùng cách đọc/ghi (file + fallback, hoặc chỉ `cin`/`cout` nếu bản Python chỉ dùng `input()`), output giống từng byte. Chỉ include header chuẩn cụ thể, không `<bits/stdc++.h>`. Chọn kiểu số theo ràng buộc của đề; vượt `long long` thì dùng `__int128` và ghi `!!! note "Nếu viết bằng C++"`.
 
 ### 7. Kiểm chứng lời giải
 
 Bắt buộc, cho mọi bài có lời giải:
 
-1. Chạy từng ví dụ: `printf '<input>' | .venv/bin/python docs/<...>/sol/<file>.py` và so với đầu ra mong đợi.
+1. Chạy từng ví dụ: `printf '<input>' | .venv/bin/python docs/<...>/sol/<file>.py` và so với đầu ra mong đợi; bản C++ biên dịch bằng `clang++ -std=c++17 -O2 -Wall -Wextra` (binary để trong scratchpad) không warning và chạy cùng các ví dụ.
+   Đối chiếu C++ với Python trên vài trăm test ngẫu nhiên, gồm test ở giá trị lớn nhất của ràng buộc để bắt tràn số.
 2. Bài có thể vét cạn: viết brute force + sinh test ngẫu nhiên nhỏ trong scratchpad (không bỏ vào repo), đối chiếu vài trăm test.
 3. Thử test lớn nhất để ước lượng thời gian so với giới hạn của đề.
 4. Nếu code mẫu trong PDF cho kết quả khác lời giải của bạn: tìm nguyên nhân, ghi vào `dap-an.md` (admonition `warning` "Lỗi trong code mẫu của tài liệu").
 
 ### 8. Viết `dap-an.md`
 
-Theo template: bảng tóm tắt (STT, Bài, Ý tưởng, Độ phức tạp), mỗi bài có **Ý tưởng**, bẫy thường gặp, lưu ý C++ nếu cần, rồi nhúng code bằng snippet `--8<-- "<bảng>/<năm>/<slug>/sol/<file>.py"`.
+Theo template: bảng tóm tắt (STT, Bài, Ý tưởng, Độ phức tạp), mỗi bài có **Ý tưởng**, bẫy thường gặp, lưu ý C++ nếu cần, rồi nhúng code bằng snippet `--8<-- "<bảng>/<năm>/<slug>/sol/<file>.py"` và `.cpp` trong hai tab `=== "Python"` / `=== "C++"` (xem template).
 
 ### 9. Cập nhật index và nav
 

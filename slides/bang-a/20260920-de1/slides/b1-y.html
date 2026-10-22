@@ -1,0 +1,31 @@
+<section id="b1-y" data-transition="fade" style="background:#FFF8EC;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#B4570A;letter-spacing:3px;text-transform:uppercase">Bài 1 · Ý tưởng</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">So sánh giá của một cái bánh</h2>
+</div>
+<div style="display:flex;gap:64px">
+<div style="width:620px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;align-items:center;gap:24px;background:#1D2B53;color:#FFF8EC;border-radius:24px;padding:24px 32px">
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:64px;font-weight:800;color:#F9B36B;line-height:1;width:150px">7</p>
+<p style="font-size:30px">nghìn/cái · hộp lớn<br><b>rẻ nhất</b></p>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFFFF;border:2px solid #E7DCC8;border-radius:24px;padding:24px 32px">
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:64px;font-weight:800;color:#B4570A;line-height:1;width:150px">7,6</p>
+<p style="font-size:30px">nghìn/cái · hộp nhỏ</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFFFF;border:2px solid #E7DCC8;border-radius:24px;padding:24px 32px">
+<p style="font-family:'Baloo 2', Verdana, sans-serif;font-size:64px;font-weight:800;color:#B4570A;line-height:1;width:150px">9</p>
+<p style="font-size:30px">nghìn/cái · mua lẻ</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:32px"><b>1.</b> Mua nhiều hộp lớn nhất có thể.<br><b>2.</b> Tiền dư (dưới 210): thử 0, 1, …, 5 hộp nhỏ.<br><b>3.</b> Còn lại mua lẻ. Chọn cách nhiều bánh nhất.</p>
+<table style="font-size:28px;color:#1D2B53">
+<tr style="background:#EAF1FB"><th style="width:28%">N = 257</th><th style="width:24%">Tiền dư</th><th style="width:20%">Lẻ</th><th style="width:28%">Tổng bánh</th></tr>
+<tr><td>0 hộp nhỏ</td><td>47</td><td>5</td><td>30 + 5 = 35</td></tr>
+<tr style="background:#FDE8D2"><td>1 hộp nhỏ</td><td>9</td><td>1</td><td><b>36 (tốt nhất)</b></td></tr>
+</table>
+</div>
+</div>
+<aside>Vì sao chỉ thử tới 5 hộp nhỏ: tiền dư nhỏ hơn 210, mà 6 × 38 = 228 đã vượt. Vì sao không bỏ bớt hộp lớn: 210 nghìn mua hộp lớn được 30 cái, còn nếu không mua hộp lớn thì tối đa 27 cái (5 hộp nhỏ + 2 cái lẻ). Lưu ý: không phải lúc nào mua nhiều hộp nhỏ cũng tốt nhất, như ví dụ 257 cho thấy cần thử từng trường hợp.</aside>
+</section>

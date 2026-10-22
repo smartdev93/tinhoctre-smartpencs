@@ -1,0 +1,23 @@
+<section id="b4-code" data-transition="fade" style="background:#EAF1FB;color:#1D2B53;font-family:'Nunito', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:800;color:#2F5FBF;letter-spacing:3px;text-transform:uppercase">Bài 4 · Code Python</p>
+<h2 style="font-family:'Baloo 2', Verdana, sans-serif;font-size:72px;font-weight:800;line-height:1.05">Một vòng lặp là đủ</h2>
+</div>
+<div style="display:flex;gap:48px;align-items:start">
+<div style="flex:1;background:#1D2B53;border-radius:28px;padding:44px 48px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.45;color:#F4EFE4">n = <span style="color:#9CC3FF">int</span>(<span style="color:#9CC3FF">input</span>())<br>a = <span style="color:#9CC3FF">list</span>(<span style="color:#9CC3FF">map</span>(<span style="color:#9CC3FF">int</span>, <span style="color:#9CC3FF">input</span>().split()))<br>tong = <span style="color:#9CC3FF">sum</span>(a)<br>trai = <span style="color:#9CC3FF">0</span><br>ans = <span style="color:#9CC3FF">0</span><br><span style="color:#F9B36B">for</span> i <span style="color:#F9B36B">in</span> <span style="color:#9CC3FF">range</span>(n - <span style="color:#9CC3FF">1</span>):<br>&#160;&#160;&#160;&#160;trai += a[i]<br>&#160;&#160;&#160;&#160;ans = <span style="color:#9CC3FF">max</span>(ans, trai * (tong - trai))<br><span style="color:#9CC3FF">print</span>(ans)</p>
+</div>
+<div style="width:520px;display:flex;flex-direction:column;gap:20px">
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>range(n - 1)</b>: phần phải không được rỗng</p>
+</div>
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>trai</b>: tổng phần trái, cộng dồn từng số</p>
+</div>
+<div style="background:#FFF8EC;border-radius:24px;padding:28px 32px">
+<p style="font-size:28px"><b>tong - trai</b>: tổng phần phải</p>
+</div>
+</div>
+</div>
+<aside>Hỏi lớp: vì sao là range(n - 1) mà không phải range(n)? Nếu cắt sau phần tử cuối cùng thì phần phải rỗng, trái với đề bài.</aside>
+</section>

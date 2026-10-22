@@ -1,6 +1,6 @@
 # Đáp án - Bảng A Quận Hải Châu 2025
 
-Lời giải tham khảo bằng Python 3. Xem lại [đề bài](index.md).
+Lời giải tham khảo bằng Python 3 và C++ (C++17). Xem lại [đề bài](index.md).
 
 | STT | Bài | Ý tưởng | Độ phức tạp |
 | ---: | --- | --- | --- |
@@ -28,9 +28,17 @@ Ví dụ $N = 100$: $k = 6$, tổng $= 15 \cdot 21 = 315$.
     - Cộng các số chia hết cho 3 **hoặc** 5 (sai điều kiện): đề yêu cầu chia hết cho **cả** 3 và 5.
     - Với $N$ rất lớn (ví dụ $10^9$), cách duyệt chạy rất lâu; dùng công thức.
 
-```python title="tongchiahet.py"
---8<-- "bang-a/2025/hc2025-de1/sol/tongchiahet.py"
-```
+=== "Python"
+
+    ```python title="tongchiahet.py"
+    --8<-- "bang-a/2025/hc2025-de1/sol/tongchiahet.py"
+    ```
+
+=== "C++"
+
+    ```cpp title="tongchiahet.cpp"
+    --8<-- "bang-a/2025/hc2025-de1/sol/tongchiahet.cpp"
+    ```
 
 ## 3. Sắp xếp sách trong thư viện
 

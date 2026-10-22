@@ -195,3 +195,6 @@ cython_debug/
 # Claude Code (local, per-user)
 .claude/settings.local.json
 
+# Sách PDF: file trung gian của scripts/build_book.py
+book/*.md
+book/*.tex
